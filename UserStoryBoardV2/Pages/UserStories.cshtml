@@ -1,0 +1,110 @@
+﻿@page
+@using static UserStoryProject.Models.UserStory
+@model UserStoryBoardV2.Pages.UserStoriesModel
+@{
+    ViewData["Title"] = "User Stories";
+
+}
+
+
+<h1 class="text-center display-4">User Story Board</h1>
+
+<br />
+<div class="row">
+    <div class="col-4">
+        <div class="card cardStyle">
+            <div class="card-header">
+                <h5 class="card-title">To Do</h5>
+                @foreach (var us in @Model.UserStories)
+                {
+                    if (us.BoardStatus == BoardOfStatus.ToDo)
+                    {
+                        <div class="card cardInsideStyle">
+                            <div class="card-header">
+                                <h6 class="card-title text-center">
+                                    @us.Title
+                                </h6>
+                                <span class="text-black-50 p-lg-1" title="Priority">Priority: @us.Priority</span>
+
+                                <div class="card-body">
+                                    <p class="card-text">@us.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn" type="button" asp-page="Detail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                            <a class="btn" type="button" asp-page="CreateUserStory"><i class="fa fa-plus-square"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;To Do&quot;" asp-page-handler="MoveLeft" asp-route-id="@us.Id"><i class="fa fa-arrow-left"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;Doing&quot;" asp-page-handler="MoveRight" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></a>
+
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card cardStyle">
+            <div class="card-header">
+                <h5 class="card-title">Doing</h5>
+                @foreach (var us in @Model.UserStories)
+                {
+                    if (us.BoardStatus == BoardOfStatus.Doing)
+                    {
+                        <div class="card cardInsideStyle">
+                            <div class="card-header">
+                                <h6 class="card-title text-center">@us.Title</h6>
+                                <span class="text-black-50 p-lg-1" title="Priority">Priority: @us.Priority</span>
+
+
+                                <div class="card-body">
+                                    <p class="card-text">@us.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn" type="button" asp-page="Detail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                            <a class="btn" type="button" asp-page="CreateUserStory"><i class="fa fa-plus-square"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;To Do&quot;" asp-page-handler="MoveLeft" asp-route-id="@us.Id"><i class="fa fa-arrow-left"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;Doing&quot;" asp-page-handler="MoveRight" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></a>
+
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card cardStyle">
+            <div class="card-header">
+                <h5 class="card-title">Done</h5>
+                @foreach (var us in @Model.UserStories)
+                {
+                    if (us.BoardStatus == BoardOfStatus.Done)
+                    {
+                        <div class="card cardInsideStyle">
+                            <div class="card-header">
+                                <h6 class="card-title text-center"> @us.Title</h6>
+                                <span class="text-black-50 p-lg-1" title="Priority">Priority: @us.Priority</span>
+
+
+                                <div class="card-body">
+                                    <p class="card-text">@us.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn" type="button" asp-page="Detail" asp-route-id="@us.Id"><i class="fa fa-info-circle"></i></a>
+                            <a class="btn" type="button" asp-page="CreateUserStory"><i class="fa fa-plus-square"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;To Do&quot;" asp-page-handler="MoveLeft" asp-route-id="@us.Id"><i class="fa fa-arrow-left"></i></a>
+                            <a class="btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Move to &quot;Doing&quot;" asp-page-handler="MoveRight" asp-route-id="@us.Id"><i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

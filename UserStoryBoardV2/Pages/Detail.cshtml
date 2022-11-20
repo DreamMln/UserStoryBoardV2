@@ -1,0 +1,36 @@
+﻿@page
+@model UserStoryBoardV2.Pages.DetailModel
+@{
+    ViewData["Title"] = "User Story details";
+
+}
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><small class="text-muted">(@Model.UserStory.Id) </small> @Model.UserStory.Title</h5>
+                <a type="button" class="close" asp-page="UserStories">&times;</a>
+            </div>
+
+            <div class="modal-body">
+                <p><b>Description:</b> @Model.UserStory.Description </p>
+                <p><b>Business Value:</b> @Model.UserStory.BusinessValue</p>
+                <p><b>Creation Date:</b> @Model.UserStory.CreationDate</p>
+                <p><b>Priority</b> @Model.UserStory.Priority</p>
+                <p><b>Story Points</b> @Model.UserStory.StoryPoints</p>
+            </div>
+            <div class=" modal-footer">
+                <a type="button" class="btn btn-primary" asp-page="Userstories">Close</a>
+                <a type="button" class="p-3" data-toggle="tooltip" data-placement="bottom" title="Edit user story" asp-page="EditUserStory" asp-route-id="@Model.UserStory.Id"><i class="fa fa-edit"></i></a>
+                <a type="button" data-toggle="tooltip" data-placement="bottom" title="Delete user story" asp-page="DeleteUserStory" asp-route-id="@Model.UserStory.Id"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts  
+{
+    <script src="~/js/showModal.js"></script>
+}

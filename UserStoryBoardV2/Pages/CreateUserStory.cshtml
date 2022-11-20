@@ -1,0 +1,93 @@
+﻿@page
+@using static UserStoryProject.Models.UserStory
+@model UserStoryBoardV2.Pages.CreateUserStoryModel
+@{
+    ViewData["Title"] = "Create User Story";
+}
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+ <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                <h5 class="card-title">Create a user story</h5>
+
+        <form method="post" enctype="multipart/form-data">
+         @*   <div class="form-group">
+                <label asp-for="@Model.US.Id" class="control-label"> Id </label>
+                        <input asp-for="@Model.US.Id" class="form-control" />
+                <span asp-validation-for="@Model.US.Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="@Model.US.Title" class="control-label"> Title </label>
+                <input asp-for="@Model.US.Title" class="form-control" />
+                <span asp-validation-for="@Model.US.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.US.Description" class="control-label">Description </label>
+                <input asp-for="@Model.US.Description" class="form-control" />
+                <span asp-validation-for="@Model.US.Description" class="text-danger"></span>
+
+            </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label asp-for="@Model.US.BusinessValue" class="control-label"></label>
+            <select class="form control" asp-for="US.BusinessValue">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label asp-for="@Model.US.Priority" class="control-label"></label>
+            <select class="form control" asp-for="US.Priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="@Model.US.StoryPoints" class="control-label"></label>
+                    <select class="form control" asp-for="US.StoryPoints">
+                        <option value="1">Small</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Large</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.US.CreationDate" class="control-label">Date</label>
+                    <input asp-for="@Model.US.CreationDate" class="form-control" />
+                    <span asp-validation-for="@Model.US.CreationDate" class="text-danger"></span>
+                </div>
+
+        
+             <div class="modal-footer align-content-center">
+                        <a type="button" class="btn btn-outline-primary" style="width: 15rem" asp-page="UserStories">Cancel</a>
+                        <input id="Create User Story" type="submit" value="Create" class="btn btn-primary" style="width: 15rem" />
+                    </div>
+
+        </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    @section Scripts
+        {
+        <script src="~/js/showModal.js"></script>
+    }
